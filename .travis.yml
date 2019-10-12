@@ -3,10 +3,10 @@ services:
   - docker
 
 before_install:
-  - docker build -t apagare/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t apagare/redis-image -f ./client/Dockerfile.dev ./client
 
-#script:
-#  - docker run apagare/react-test nmp test -- --coverage
+script:
+  - docker run apagare/redis-image nmp test -- --coverage
 
 after_success:
   - docker build -t apagare/multi-client ./client
